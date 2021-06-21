@@ -23,12 +23,11 @@ const ListFeatures = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box bg={colorMode === "light" ? "white" : "teal.600"}>
+    <Box bg={colorMode === "light" ? "white" : "teal.700"}>
       <Container
         as="header"
         maxW="container.lg"
-        pt="28"
-        pb="10"
+        py="28"
         display="flex"
         justifyContent="center"
       >

@@ -27,23 +27,25 @@ const Navigation = () => {
         </Link>
         <List>
           <Flex justify="space-around" align="center">
-            <ListItem mx="4">
-              <Link href="/#sample">
-                <Text fontSize="lg" textTransform="uppercase">
-                  Sample
-                </Text>
-              </Link>
-            </ListItem>
-            <ListItem mx="4">
-              <Link href="/#pricing" textTransform="uppercase">
-                Pricing
-              </Link>
-            </ListItem>
-            <ListItem mx="4">
-              <Link href="/#buy-now" textTransform="uppercase">
-                Buy now
-              </Link>
-            </ListItem>
+            <Box display={["none", "none", "flex"]}>
+              <ListItem mx="4">
+                <Link href="/#sample">
+                  <Text fontSize="lg" textTransform="uppercase">
+                    Sample
+                  </Text>
+                </Link>
+              </ListItem>
+              <ListItem mx="4">
+                <Link href="/#pricing" textTransform="uppercase">
+                  Pricing
+                </Link>
+              </ListItem>
+              <ListItem mx="4">
+                <Link href="/#buy-now" textTransform="uppercase">
+                  Buy now
+                </Link>
+              </ListItem>
+            </Box>
 
             <Menu>
               <MenuButton
@@ -53,6 +55,7 @@ const Navigation = () => {
                 variant="outline"
                 mx="2"
                 borderRadius="5px"
+                display={["block", "block", "none"]}
               />
               <MenuList>
                 <MenuItem>

@@ -52,14 +52,21 @@ const Navigation = () => {
                 icon={<HamburgerIcon />}
                 variant="outline"
                 mx="2"
+                borderRadius="5px"
               />
               <MenuList>
-                <MenuItem>New Tab</MenuItem>
-                <MenuItem command="⌘N">New Window</MenuItem>
-                <MenuItem>Open Closed Tab</MenuItem>
-                <MenuItem>Open File...</MenuItem>
+                <MenuItem>
+                  <Link href="/#sample">SAMPLE</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/#pricing">PRICING</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/#buy-now">BUY NOW</Link>
+                </MenuItem>
               </MenuList>
             </Menu>
+
             <Button variant="outline">
               <MoonIcon w="4" h="4" />
             </Button>

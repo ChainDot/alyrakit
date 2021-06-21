@@ -18,7 +18,13 @@ const Header = () => {
         }}
       >
         <Box>
-          <Heading as="h1" mb="6" maxW="30ch">
+          <Heading
+            as="h2"
+            mb="6"
+            maxW="30ch"
+            fontFamily="Trocchi"
+            fontWeight="400"
+          >
             Welcome to{" "}
             <Text as="span" color="teal">
               AlyraKit.

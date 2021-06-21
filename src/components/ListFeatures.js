@@ -1,3 +1,4 @@
+import { useColorMode } from "@chakra-ui/color-mode";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Img } from "@chakra-ui/image";
 import {
@@ -19,52 +20,55 @@ const ListFeatures = () => {
     "Tech support",
     "Integration ready",
   ];
+  const { colorMode } = useColorMode();
 
   return (
-    <Container
-      as="header"
-      maxW="container.lg"
-      pt="28"
-      pb="10"
-      display="flex"
-      justifyContent="center"
-    >
-      <Stack
-        direction={["column", null, "row"]}
-        sx={{
-          gap: "2rem",
-        }}
-        alignItems="center"
+    <Box bg={colorMode === "light" ? "white" : "teal.600"}>
+      <Container
+        as="header"
+        maxW="container.lg"
+        pt="28"
+        pb="10"
+        display="flex"
+        justifyContent="center"
       >
-        <Img
-          src={working}
-          alt="Illustration with a computer on the desk"
-          width="400"
-          height="295"
-        />
-
-        <Box>
-          <Heading as="h2" mb="6">
-            The most useful resource ever created for designers
-          </Heading>
+        <Stack
+          direction={["column", null, "row"]}
+          sx={{
+            gap: "2rem",
+          }}
+          alignItems="center"
+        >
+          <Img
+            src={working}
+            alt="Illustration with a computer on the desk"
+            width="400"
+            height="295"
+          />
 
           <Box>
-            <List direction="row">
-              <SimpleGrid columns="2">
-                {list.map((el, index) => {
-                  return (
-                    <ListItem key={index} mb="3">
-                      <ListIcon as={CheckCircleIcon} color="teal.300" />
-                      {el}
-                    </ListItem>
-                  );
-                })}
-              </SimpleGrid>
-            </List>
+            <Heading as="h2" mb="6" fontFamily="Trocchi" fontWeight="400">
+              The most useful resource ever created for designers
+            </Heading>
+
+            <Box>
+              <List direction="row">
+                <SimpleGrid columns="2">
+                  {list.map((el, index) => {
+                    return (
+                      <ListItem key={index} mb="3">
+                        <ListIcon as={CheckCircleIcon} color="teal.300" />
+                        {el}
+                      </ListItem>
+                    );
+                  })}
+                </SimpleGrid>
+              </List>
+            </Box>
           </Box>
-        </Box>
-      </Stack>
-    </Container>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 

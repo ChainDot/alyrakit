@@ -1,15 +1,18 @@
-import Features from "./Features"
-import Footer from "./Footer"
-import GetStarted from "./GetStarted"
-import Header from "./Header"
-import ListFeatures from "./ListFeatures"
-import Navigation from "./Navigation"
-import Pricing from "./Pricing"
-import Sample from "./Sample"
+import { useColorMode } from "@chakra-ui/color-mode";
+import { Box } from "@chakra-ui/layout";
+import Features from "./Features";
+import Footer from "./Footer";
+import GetStarted from "./GetStarted";
+import Header from "./Header";
+import ListFeatures from "./ListFeatures";
+import Navigation from "./Navigation";
+import Pricing from "./Pricing";
+import Sample from "./Sample";
 
 const LandingPage = () => {
+  const { colorMode } = useColorMode();
   return (
-    <div>
+    <Box bg={colorMode === "light" ? "white" : "teal.800"}>
       <Navigation />
       <Header />
       <main>
@@ -20,8 +23,8 @@ const LandingPage = () => {
         <GetStarted />
       </main>
       <Footer />
-    </div>
-  )
-}
+    </Box>
+  );
+};
 
-export default LandingPage
+export default LandingPage;

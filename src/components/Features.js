@@ -22,6 +22,7 @@ const Features = () => {
       text: "We've written extensive documentation for components and tools, so you never have to reverse engineer anything.",
     },
   ];
+
   return (
     <Container as="section" maxW="container.lg" py="10">
       <SimpleGrid columns={{ base: "1", md: "1", lg: "3" }} gap="8">

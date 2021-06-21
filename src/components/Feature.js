@@ -8,7 +8,7 @@ const Feature = ({ icon, title, text }) => {
       <Heading size="md" mb="4">
         {title}
       </Heading>
-      <Text color="gray.600">{text}</Text>
+      <Text>{text}</Text>
     </Box>
   );
 };

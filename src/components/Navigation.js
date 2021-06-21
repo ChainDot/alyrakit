@@ -1,5 +1,6 @@
 import { Button, IconButton } from "@chakra-ui/button";
-import { HamburgerIcon, MoonIcon } from "@chakra-ui/icons";
+import { useColorMode } from "@chakra-ui/color-mode";
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
@@ -13,8 +14,15 @@ import {
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 
 const Navigation = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box position="fixed" w="100%" py="4" zIndex="100" bg="whiteAlpha.800">
+    <Box
+      position="fixed"
+      w="100%"
+      py="4"
+      zIndex="100"
+      bg={colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.400"}
+    >
       <Container
         as="nav"
         display="flex"
@@ -23,7 +31,9 @@ const Navigation = () => {
         maxW="container.lg"
       >
         <Link href="/" textDecoration="none">
-          <Heading size="lg">AlyraKit</Heading>
+          <Heading size="lg" fontWeight="500">
+            AlyraKit
+          </Heading>
         </Link>
         <List>
           <Flex justify="space-around" align="center">
@@ -40,8 +50,12 @@ const Navigation = () => {
                   Pricing
                 </Link>
               </ListItem>
-              <ListItem mx="4">
-                <Link href="/#buy-now" textTransform="uppercase">
+              <ListItem mx="8">
+                <Link
+                  href="/#buy-now"
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                >
                   Buy now
                 </Link>
               </ListItem>
@@ -70,8 +84,15 @@ const Navigation = () => {
               </MenuList>
             </Menu>
 
-            <Button variant="outline">
-              <MoonIcon w="4" h="4" />
+            <Button
+              onClick={toggleColorMode}
+              bg={colorMode === "light" ? "white" : "teal.800"}
+            >
+              {colorMode === "light" ? (
+                <MoonIcon w="4" h="4" />
+              ) : (
+                <SunIcon w="4" h="4" />
+              )}
             </Button>
           </Flex>
         </List>

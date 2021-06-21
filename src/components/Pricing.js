@@ -11,6 +11,7 @@ import {
   ListItem,
   ListIcon,
   Button,
+  useColorMode,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
@@ -35,10 +36,22 @@ const Pricing = () => {
     }
   };
 
+  const { colorMode } = useColorMode();
+
   return (
-    <Box as="section" bg="gray.50" id="pricing" py="20">
+    <Box
+      as="section"
+      bg={colorMode === "light" ? "white" : "teal.400"}
+      id="pricing"
+      py="20"
+    >
       <Container maxW="container.md" align="center">
-        <Heading textAlign="center" mb="6">
+        <Heading
+          textAlign="center"
+          mb="6"
+          fontFamily="Trocchi"
+          fontWeight="400"
+        >
           Fair, simple pricing for all
         </Heading>
 
@@ -50,9 +63,21 @@ const Pricing = () => {
         <PricingSwitch onChange={handleSwitchChange} />
 
         <Box d={["block", null, "flex"]} alignItems="center">
-          <Box bg="white" shadow="lg" flex="1" zIndex="1" mb={[6, 6, 0]}>
+          <Box
+            bg={colorMode === "light" ? "white" : "teal.900"}
+            shadow="lg"
+            flex="1"
+            zIndex="1"
+            mb={[6, 6, 0]}
+          >
             <Center pt="6">
-              <Badge>Standard</Badge>{" "}
+              <Badge
+                p="2"
+                borderRadius="16px"
+                bg={colorMode === "light" ? "white" : "teal.700"}
+              >
+                Standard
+              </Badge>
             </Center>
             <Center>
               <Text as="b" fontSize="6xl">
@@ -80,9 +105,19 @@ const Pricing = () => {
             </Button>
           </Box>
 
-          <Box bg="white" shadow="lg" flex="1">
+          <Box
+            bg={colorMode === "light" ? "white" : "teal.900"}
+            shadow="lg"
+            flex="1"
+          >
             <Center pt="6">
-              <Badge>Entreprise</Badge>
+              <Badge
+                p="2"
+                borderRadius="16px"
+                bg={colorMode === "light" ? "white" : "teal.700"}
+              >
+                Entreprise
+              </Badge>
             </Center>
             <Text textAlign="center" p="6" fontSize="lg">
               We offer variable pricing with discounts for larger organizations.

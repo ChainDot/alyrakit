@@ -1,11 +1,16 @@
+import { Img } from "@chakra-ui/image";
+import { Box, Heading, Text } from "@chakra-ui/layout";
+
 const Feature = ({ icon, title, text }) => {
   return (
-    <div>
-      <img width="64px" src={icon} alt="" />
-      <h2 as="h2">{title}</h2>
-      <p>{text}</p>
-    </div>
-  )
-}
+    <Box>
+      <Img width="64px" height="64px" src={icon} alt="" mb="4" />
+      <Heading size="md" mb="4">
+        {title}
+      </Heading>
+      <Text color="gray.600">{text}</Text>
+    </Box>
+  );
+};
 
-export default Feature
+export default Feature;

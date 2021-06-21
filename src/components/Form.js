@@ -1,30 +1,59 @@
-import { useState } from "react"
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  FormControl,
+  Input,
+  FormLabel,
+  Button,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/react";
+import { useState } from "react";
 
-const Form = () => {
-  const [sampleRequest, setSampleRequest] = useState(false)
+const Form = ({ isOpen, onClose }) => {
+  const [sampleRequest, setSampleRequest] = useState(false);
   const handleFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // get the data
     // do sth with the data
-    setSampleRequest(true)
-  }
+    setSampleRequest(true);
+  };
   return (
-    <div>
-      {!sampleRequest ? (
-        <form onSubmit={handleFormSubmit}>
-          <label htmlFor="name">Your name</label>
-          <input id="name" placeholder="Joe Doe" required />
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Apply for a free sample</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          {!sampleRequest ? (
+            <form onSubmit={handleFormSubmit}>
+              <FormControl id="name" mb="4">
+                <FormLabel>Your name</FormLabel>
+                <Input placeholder="Joe Doe" required />
+              </FormControl>
+              <FormControl id="email" mb="4">
+                <FormLabel>Your email</FormLabel>
+                <Input type="email" placeholder="joe@doe.com" required />
+              </FormControl>
 
-          <label htmlFor="email">Your email</label>
-          <input id="email" type="email" placeholder="joe@doe.com" required />
+              <Button type="submit" mb="4">
+                Submit
+              </Button>
+            </form>
+          ) : (
+            <Alert status="success" mb="4">
+              <AlertIcon />
+              Thank you! You will receive your sample soon!
+            </Alert>
+          )}
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
 
-          <button type="submit">Submit</button>
-        </form>
-      ) : (
-        <p>Thank you! You will receive your sample soon!</p>
-      )}
-    </div>
-  )
-}
-
-export default Form
+export default Form;

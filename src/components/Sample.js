@@ -1,19 +1,26 @@
-import Form from "./Form"
+import { Button } from "@chakra-ui/button";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { Center, Container, Text } from "@chakra-ui/layout";
+import Form from "./Form";
 
 const Sample = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <div id="sample">
-      <p>
+    <Container id="sample" py="24">
+      <Text fontSize="xl" mb="6" textAlign="center">
         Using AlyraKit to build your site means never worrying about designing
         another page or cross browser compatibility. Our ever-growing library of
         components and pre-designed layouts will make your life easier.
-      </p>
+      </Text>
+      <Center>
+        <Button colorScheme="teal" size="lg" onClick={onOpen}>
+          Download a Sample
+        </Button>
+      </Center>
 
-      <button>Download a Sample</button>
+      <Form isOpen={isOpen} onClose={onClose} />
+    </Container>
+  );
+};
 
-      <Form />
-    </div>
-  )
-}
-
-export default Sample
+export default Sample;

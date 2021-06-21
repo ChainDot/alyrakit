@@ -1,4 +1,16 @@
-import working from "../assets/working.svg"
+import { CheckCircleIcon } from "@chakra-ui/icons";
+import { Img } from "@chakra-ui/image";
+import {
+  Box,
+  Container,
+  Heading,
+  List,
+  ListIcon,
+  ListItem,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/layout";
+import working from "../assets/working.svg";
 
 const ListFeatures = () => {
   const list = [
@@ -6,24 +18,54 @@ const ListFeatures = () => {
     "Tons of assets",
     "Tech support",
     "Integration ready",
-  ]
+  ];
+
   return (
-    <div>
-      <img
-        src={working}
-        alt="Illustration with a computer on the desk"
-        width="400"
-        height="295"
-      />
+    <Container
+      as="header"
+      maxW="container.lg"
+      pt="28"
+      pb="10"
+      display="flex"
+      justifyContent="center"
+    >
+      <Stack
+        direction={["column", null, "row"]}
+        sx={{
+          gap: "2rem",
+        }}
+        alignItems="center"
+      >
+        <Img
+          src={working}
+          alt="Illustration with a computer on the desk"
+          width="400"
+          height="295"
+        />
 
-      <h2>The most useful resource ever created for designers</h2>
-      <ul>
-        {list.map((el, index) => {
-          return <li key={index}>{el}</li>
-        })}
-      </ul>
-    </div>
-  )
-}
+        <Box>
+          <Heading as="h2" mb="6">
+            The most useful resource ever created for designers
+          </Heading>
 
-export default ListFeatures
+          <Box>
+            <List direction="row">
+              <SimpleGrid columns="2">
+                {list.map((el, index) => {
+                  return (
+                    <ListItem key={index} mb="3">
+                      <ListIcon as={CheckCircleIcon} color="teal.300" />
+                      {el}
+                    </ListItem>
+                  );
+                })}
+              </SimpleGrid>
+            </List>
+          </Box>
+        </Box>
+      </Stack>
+    </Container>
+  );
+};
+
+export default ListFeatures;

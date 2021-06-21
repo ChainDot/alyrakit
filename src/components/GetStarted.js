@@ -1,16 +1,25 @@
+import { Button } from "@chakra-ui/button";
+import { Badge, Center, Container, Heading, Text } from "@chakra-ui/layout";
+
 const GetStarted = () => {
   return (
-    <section id="buy-now">
-      <span>Get Started</span>
-      <h2>Get AlyraKit and save your time</h2>
-      <p>
+    <Container id="buy-now" py="24" maxW="container.md" align="center">
+      <Badge mb="6">Get Started</Badge>
+      <Heading textAlign="center" mb="6">
+        Get AlyraKit and save your time
+      </Heading>
+      <Text fontSize="xl" mb="6" textAlign="center">
         Stop wasting time trying to do it the "right way" and build a site from
         scratch. AlyraKit is faster, easier, and you still have complete
         control.
-      </p>
-      <button>Buy now</button>
-    </section>
-  )
-}
+      </Text>
+      <Center>
+        <Button colorScheme="teal" size="lg">
+          Buy now
+        </Button>
+      </Center>
+    </Container>
+  );
+};
 
-export default GetStarted
+export default GetStarted;

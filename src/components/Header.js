@@ -39,13 +39,14 @@ const Header = () => {
             Buy it now
           </Button>
         </Box>
-
-        <img
-          src={monitor}
-          alt="Illustration with a computer on the desk"
-          width="500"
-          height="378"
-        />
+        <Box flex="1">
+          <img
+            src={monitor}
+            alt="Illustration with a computer on the desk"
+            width="500"
+            height="378"
+          />
+        </Box>
       </Stack>
     </Container>
   );

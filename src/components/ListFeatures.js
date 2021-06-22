@@ -38,14 +38,16 @@ const ListFeatures = () => {
           }}
           alignItems="center"
         >
-          <Img
-            src={working}
-            alt="Illustration with a computer on the desk"
-            width="400"
-            height="295"
-          />
-
           <Box>
+            <Img
+              src={working}
+              alt="Illustration with a computer on the desk"
+              width="400"
+              height="295"
+            />
+          </Box>
+
+          <Box flex="1">
             <Heading as="h2" mb="6" fontFamily="Trocchi" fontWeight="400">
               The most useful resource ever created for designers
             </Heading>

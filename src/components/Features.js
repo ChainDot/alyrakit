@@ -3,6 +3,7 @@ import coffee from "../assets/coffee.svg";
 import screen from "../assets/screen.svg";
 import Feature from "./Feature";
 import { Container, SimpleGrid } from "@chakra-ui/layout";
+import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
 const Features = () => {
   const features = [
@@ -25,11 +26,13 @@ const Features = () => {
 
   return (
     <Container as="section" maxW="container.lg" py="10">
-      <SimpleGrid columns={{ base: "1", md: "1", lg: "3" }} gap="8">
-        {features.map((el, index) => {
-          return <Feature key={index} {...el}></Feature>;
-        })}
-      </SimpleGrid>
+      <SlideFadeOnScroll>
+        <SimpleGrid columns={{ base: "1", md: "1", lg: "3" }} gap="8">
+          {features.map((el, index) => {
+            return <Feature key={index} {...el}></Feature>;
+          })}
+        </SimpleGrid>
+      </SlideFadeOnScroll>
     </Container>
   );
 };

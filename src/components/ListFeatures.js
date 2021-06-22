@@ -1,4 +1,4 @@
-import { useColorMode } from "@chakra-ui/color-mode";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Img } from "@chakra-ui/image";
 import {
@@ -12,6 +12,7 @@ import {
   Stack,
 } from "@chakra-ui/layout";
 import working from "../assets/working.svg";
+import SlideFadeOnScroll from "./SlideFadeOnScroll";
 
 const ListFeatures = () => {
   const list = [
@@ -20,41 +21,41 @@ const ListFeatures = () => {
     "Tech support",
     "Integration ready",
   ];
-  const { colorMode } = useColorMode();
+  const bg = useColorModeValue("gray.50", "teal.700");
 
   return (
-    <Box bg={colorMode === "light" ? "white" : "teal.700"}>
-      <Container
-        as="header"
-        maxW="container.lg"
-        py="28"
-        display="flex"
-        justifyContent="center"
-      >
-        <Stack
-          direction={["column", null, "row"]}
-          sx={{
-            gap: "2rem",
-          }}
-          alignItems="center"
+    <Box bg={bg}>
+      <SlideFadeOnScroll>
+        <Container
+          as="header"
+          maxW="container.lg"
+          py="28"
+          display="flex"
+          justifyContent="center"
         >
-          <Box>
-            <Img
-              src={working}
-              alt="Illustration with a computer on the desk"
-              width="400"
-              height="295"
-            />
-          </Box>
+          <Stack
+            direction={["column", null, "row"]}
+            sx={{
+              gap: "2rem",
+            }}
+            alignItems="center"
+          >
+            <Box flex="1">
+              <Img
+                src={working}
+                alt="Illustration with a computer on the desk"
+                width="400"
+                height="295"
+              />
+            </Box>
 
-          <Box flex="1">
-            <Heading as="h2" mb="6" fontFamily="Trocchi" fontWeight="400">
-              The most useful resource ever created for designers
-            </Heading>
+            <Box flex="1">
+              <Heading as="h2" mb="6" fontFamily="special" fontWeight="400">
+                The most useful resource ever created for designers
+              </Heading>
 
-            <Box>
-              <List direction="row">
-                <SimpleGrid columns="2">
+              <Box>
+                <SimpleGrid as={List} columns="2">
                   {list.map((el, index) => {
                     return (
                       <ListItem key={index} mb="3">
@@ -64,11 +65,11 @@ const ListFeatures = () => {
                     );
                   })}
                 </SimpleGrid>
-              </List>
+              </Box>
             </Box>
-          </Box>
-        </Stack>
-      </Container>
+          </Stack>
+        </Container>
+      </SlideFadeOnScroll>
     </Box>
   );
 };
